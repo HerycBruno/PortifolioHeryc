@@ -1,0 +1,611 @@
+/* VARIÁVEIS DE CORES */
+:root {
+    --bg-primary: #0F172A;
+    --bg-secondary: #1E293B;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --accent-blue: #38BDF8;
+    --accent-purple: #8B5CF6;
+    --border-color: rgba(255,255,255,0.05);
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* PARTICLES */
+.particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(56,189,248,0.15) 0%, transparent 20%),
+        radial-gradient(circle at 80% 80%, rgba(139,92,246,0.15) 0%, transparent 20%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    padding: 25px 10%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+
+    backdrop-filter: blur(10px);
+    background: transparent;
+
+    z-index: 999;
+    transition: background 0.3s ease;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--accent-blue);
+    transition: 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: 0.3s;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-blue);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 10%;
+    padding-top: 120px;
+    gap: 60px;
+}
+
+.hero-text {
+    max-width: 600px;
+    flex: 1;
+}
+
+.hero-text span {
+    color: var(--accent-blue);
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+    margin: 20px 0;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.hero-text p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+}
+
+.btn-outline {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent-blue);
+    background: transparent;
+    border: none;
+}
+
+.btn-outline:hover {
+    opacity: 0.8;
+    transform: translateY(-5px);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img,
+.image-placeholder {
+    width: 380px;
+    height: 380px;
+    border-radius: 30px;
+    border: 2px solid var(--accent-blue);
+    box-shadow: 0 0 30px rgba(56,189,248,0.4);
+    object-fit: cover;
+}
+
+.image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 24px;
+}
+
+.image-placeholder i {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+/* SECTION */
+.section {
+    padding: 120px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-title span {
+    color: var(--accent-blue);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+/* CARDS */
+.sobre-card,
+.prof-card,
+.projeto-card,
+.faculdade-container {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.sobre-card:hover,
+.prof-card:hover,
+.projeto-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 30px rgba(56,189,248,0.2);
+}
+
+/* SOBRE */
+.sobre-card {
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sobre-card h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sobre-card p {
+    margin-top: 20px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* FACULDADE CENTRALIZADA */
+.faculdade-container-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+}
+
+.faculdade-image-centered {
+    padding: 15px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.faculdade-image-centered img {
+    width: 760px;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+}
+
+.faculdade-text-centered {
+    max-width: 700px;
+}
+
+.faculdade-text-centered h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.faculdade-text-centered p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.skills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.skill-tag {
+    padding: 8px 16px;
+    background: rgba(56,189,248,0.1);
+    border: 1px solid rgba(56,189,248,0.3);
+    border-radius: 50px;
+    color: var(--accent-blue);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.skill-tag:hover {
+    background: rgba(56,189,248,0.2);
+    transform: translateY(-2px);
+}
+
+/* PROFESSORES */
+/* PROFESSORES */
+.professores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.prof-card {
+    padding: 40px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prof-image-placeholder {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(56,189,248,0.1);
+    color: var(--accent-blue);
+}
+
+.prof-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.prof-image-placeholder i {
+    font-size: 60px;
+}
+
+.prof-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+.prof-card h3 {
+    font-size: 20px;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.prof-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* PROJETOS */
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projeto-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+
+.projeto-info {
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.projeto-info h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+.projeto-info p {
+    margin: 0 0 25px 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex-grow: 1;
+    font-size: 15px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 6px 14px;
+    background: rgba(56,189,248,0.1);
+    border: 1px solid rgba(56,189,248,0.3);
+    border-radius: 50px;
+    color: var(--accent-blue);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.projeto-link {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    padding: 12px 24px;
+    border-radius: 10px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+.projeto-link:hover {
+    transform: translateY(-3px);
+}
+
+/* CONTATO */
+.contato-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contato-container a {
+    text-decoration: none;
+    color: white;
+
+    padding: 15px 25px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.contato-container a:hover {
+    background: var(--accent-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(56,189,248,0.3);
+}
+
+/* BOTAO TOPO */
+#topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--accent-blue);
+    color: white;
+
+    cursor: pointer;
+
+    display: none;
+
+    transition: 0.3s;
+    z-index: 998;
+}
+
+#topBtn:hover {
+    transform: translateY(-5px);
+}
+
+/* RESPONSIVO */
+@media (max-width: 1000px) {
+
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 40px;
+        padding: 120px 20px 0 20px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 45px;
+    }
+
+    .hero-image,
+    .hero-image img {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .faculdade-container {
+        flex-direction: column;
+        padding: 30px;
+        gap: 30px;
+    }
+
+    .faculdade-image img,
+    .faculdade-image .image-placeholder {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 120px 20px 50px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .section {
+        padding: 80px 20px;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    .professores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #topBtn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .contato-social {
+        gap: 15px;
+    }
+
+    .social-link {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+}
