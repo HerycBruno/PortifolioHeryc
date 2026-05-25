@@ -163,6 +163,25 @@ nav a:hover::after {
     transform: translateY(-5px);
 }
 
+.btn-trabalhos {
+    /* Gradiente azul deslumbrante */
+    background: linear-gradient(135deg, #38BDF8 0%, #0EA5E9 100%);
+    
+    /* Padding maior para melhor aparência */
+    padding: 16px 50px;
+    
+    /* Borda arredondada moderna */
+    border-radius: 8px;
+    text-decoration: none;
+    
+    /* Sombra elegante */
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+    
+    /* Fonte bonita */
+    font-weight: 600;
+    font-size: 1rem;
+}
+
 .hero-image {
     flex: 1;
     display: flex;

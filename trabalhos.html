@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Trabalhos | Heryc Silva</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Estilos específicos para a galeria de trabalhos */
+        .trabalhos-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+            min-height: 100vh;
+        }
+
+        .trabalhos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 1024px) {
+            .trabalhos-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .trabalho-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .trabalho-item:nth-child(1) { animation-delay: 0.1s; }
+        .trabalho-item:nth-child(2) { animation-delay: 0.2s; }
+        .trabalho-item:nth-child(3) { animation-delay: 0.3s; }
+        .trabalho-item:nth-child(4) { animation-delay: 0.4s; }
+        .trabalho-item:nth-child(5) { animation-delay: 0.5s; }
+        .trabalho-item:nth-child(6) { animation-delay: 0.6s; }
+        .trabalho-item:nth-child(7) { animation-delay: 0.7s; }
+        .trabalho-item:nth-child(8) { animation-delay: 0.8s; }
+        .trabalho-item:nth-child(9) { animation-delay: 0.9s; }
+
+        .trabalho-imagem {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .trabalho-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(26, 26, 62, 0.95) 100%);
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .trabalho-titulo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .trabalho-descricao {
+            font-size: 0.95rem;
+            color: #cbd5e0;
+            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .trabalho-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 25px 50px rgba(0, 212, 255, 0.25),
+                0 0 80px rgba(0, 153, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .trabalho-item:hover .trabalho-imagem {
+            transform: scale(1.1);
+        }
+
+        .trabalho-item:hover .trabalho-overlay {
+            opacity: 1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trabalhos-section {
+                padding: 60px 15px;
+            }
+
+            .trabalhos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 35px;
+                margin-top: 60px;
+            }
+
+            .trabalho-titulo {
+                font-size: 1.3rem;
+            }
+
+            .trabalho-descricao {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trabalhos-section {
+                padding: 40px 15px;
+            }
+
+            .trabalhos-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-top: 40px;
+            }
+
+            .trabalho-item:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PARTICLES (se existir no seu CSS original) -->
+    <div class="particles"></div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            Heryc.
+        </div>
+
+        <nav>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="index.html#faculdade">Faculdade</a>
+            <a href="trabalhos.html">Trabalhos</a>
+            <a href="index.html#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- SEÇÃO DE TRABALHOS -->
+    <section class="trabalhos-section">
+        <div class="section-title">
+            <span>Portfólio</span>
+            <h2>Meus Trabalhos</h2>
+        </div>
+
+        <div class="trabalhos-grid">
+            
+            <!-- TRABALHO 1 -->
+            <div class="trabalho-item">
+                <img src="assets/img/estrela colorida.jpg" alt="Estrela Colorida" class="trabalho-imagem">
+                <div class="trabalho-overlay">
+                    <div class="trabalho-titulo">Estrela Colorida</div>
+                    <div class="trabalho-descricao">Uma criação vibrante com paleta de cores deslumbrantes</div>
+                </div>
+            </div>
+
+            <!-- TRABALHO 2 -->
+            <div class="trabalho-item">
+                <img src="assets/img/SOS.jpg" alt="SOS" class="trabalho-imagem">
+                <div class="trabalho-overlay">
+                    <div class="trabalho-titulo">SOS</div>
+                    <div class="trabalho-descricao">Projeto com mensagem impactante e design marcante</div>
+                </div>
+            </div>
+
+            <!-- TRABALHO 3 -->
+            <div class="trabalho-item">
+                <img src="assets/img/Maça.jpg" alt="Maçã" class="trabalho-imagem">
+                <div class="trabalho-overlay">
+                    <div class="trabalho-titulo">Maçã</div>
+                    <div class="trabalho-descricao">Trabalho detalhista com elementos naturais e texturas</div>
+                </div>
+            </div>
+
+            <!-- TRABALHO 4 -->
+            <div class="trabalho-item">
+                <img src="assets/img/pierre.jpg" alt="Pierre" class="trabalho-imagem">
+                <div class="trabalho-overlay">
+                    <div class="trabalho-titulo">Pierre</div>
+                    <div class="trabalho-descricao">Criação artística com elegância e sofisticação</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BOTÃO TOPO -->
+    <button id="topBtn" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
